@@ -1,18 +1,31 @@
 {
   "name": "mail-server",
-  "version": "2018.11.9",
+  "version": "0.1.1",
   "description": "Mail Site Backend Server.",
   "main": "dist/index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "ts-node src",
+    "test": "ts-node test",
+    "build": "tsc"
+  },
   "keywords": [
     "backend",
     "server"
   ],
+  "private": true,
   "author": "Devin Don",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "koa-backend-server": "^0.2.2",
+    "mysql": "^2.16.0"
+  },
   "devDependencies": {
-    "ts-node": "^7.0.1"
+    "@types/koa": "^2.0.46",
+    "@types/koa-router": "^7.0.34",
+    "@types/koa-session": "^5.7.4",
+    "@types/node": "^10.12.9",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.6"
   },
   "repository": {
     "type": "git",

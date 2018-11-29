@@ -1,4 +1,4 @@
-import { AMiddleware, now } from "koa-backend-server";
+import { AMiddleware, now } from 'koa-backend-server';
 
 export const signin: AMiddleware = async (c, next) => {
   if (c.session) {
@@ -9,7 +9,7 @@ export const signin: AMiddleware = async (c, next) => {
     };
     c.body = 'Successful sign in';
   } else {
-    c.body = 'Something wrong.'
+    c.body = 'Something wrong.';
   }
   next();
 };

@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  mail-server:
+    build: .
+    container_name: mail-server
+    depends_on:
+      - mail-database
+    links:
+      - mail-database
+    ports:
+      - "80:80"
+
+  mail-database:
+    image: mysql:5
+    container_name: mail-database
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mail
+      MYSQL_USER: mail
+      MYSQL_PASSWORD: mail
+    ports:
+      - "3306:3306"
+
+    # volumes:
+    #   - ./database/mysql:/var/lib/mysql
+    #   - ./conf/my.cnf:/etc/mysql/my.cnf

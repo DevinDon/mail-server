@@ -1,46 +1,49 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import Content from './content.entity';
 
 @Entity()
 export class Mail extends BaseEntity {
 
   @PrimaryGeneratedColumn()
-  id: number;
+  public id: number;
 
   @Column({
-    type: 'varchar',
-    length: 1024,
+    type: 'char',
+    length: 255,
+    nullable: false,
+    default: 'Unknown',
     comment: 'Mail from'
   })
-  from: string;
+  public from: string;
 
   @Column({
-    type: 'varchar',
-    length: 1024,
+    type: 'char',
+    length: 255,
+    nullable: false,
+    default: 'You',
     comment: 'Mail to'
   })
-  to: string;
+  public to: string;
 
   @Column({
     type: 'datetime',
+    nullable: false,
     comment: 'Mail sent date'
   })
-  date: string;
+  public date: string;
 
   @Column({
-    type: 'varchar',
-    length: 2048,
-    nullable: true,
+    type: 'char',
+    length: 255,
+    nullable: false,
+    default: 'Untitled',
     comment: 'Mail subject'
   })
-  subject: string;
+  public subject: string;
 
-  @Column({
-    type: 'varchar',
-    length: 60000,
-    nullable: true,
-    comment: 'Mail content'
-  })
-  content: string;
+  @OneToOne(type => Content)
+  @JoinColumn()
+  public content: Content;
 
 }
 

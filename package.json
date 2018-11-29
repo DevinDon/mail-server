@@ -16,7 +16,7 @@
   "author": "Devin Don",
   "license": "MIT",
   "dependencies": {
-    "koa-backend-server": "^0.2.2",
+    "koa-backend-server": "^0.2.4",
     "mysql": "^2.16.0"
   },
   "devDependencies": {

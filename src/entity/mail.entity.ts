@@ -5,7 +5,7 @@ import Content from './content.entity';
 export class Mail extends BaseEntity {
 
   @PrimaryGeneratedColumn()
-  public id: number;
+  id: number;
 
   @Column({
     type: 'char',
@@ -14,7 +14,7 @@ export class Mail extends BaseEntity {
     default: 'Unknown',
     comment: 'Mail from'
   })
-  public from: string;
+  from: string;
 
   @Column({
     type: 'char',
@@ -23,14 +23,14 @@ export class Mail extends BaseEntity {
     default: 'You',
     comment: 'Mail to'
   })
-  public to: string;
+  to: string;
 
   @Column({
     type: 'datetime',
     nullable: false,
     comment: 'Mail sent date'
   })
-  public date: string;
+  date: string;
 
   @Column({
     type: 'char',
@@ -39,11 +39,11 @@ export class Mail extends BaseEntity {
     default: 'Untitled',
     comment: 'Mail subject'
   })
-  public subject: string;
+  subject: string;
 
   @OneToOne(type => Content)
   @JoinColumn()
-  public content: Content;
+  content: Content;
 
 }
 

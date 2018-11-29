@@ -4,14 +4,14 @@ import { Entity, BaseEntity, PrimaryGeneratedColumn, Column } from 'typeorm';
 export class Content extends BaseEntity {
 
   @PrimaryGeneratedColumn()
-  public id: number;
+  id: number;
 
   @Column({
     type: 'text',
     nullable: true,
     comment: 'Mail content'
   })
-  public content: string;
+  content: string;
 
 }
 

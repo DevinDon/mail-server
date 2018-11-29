@@ -6,6 +6,7 @@ export const show: AMiddleware = async (c, next) => {
   const user = await User.find();
   c.body = {
     status: user ? true : false,
+    request: data,
     data: user
   };
   next();

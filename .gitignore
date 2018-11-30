@@ -2,3 +2,5 @@
 /dist
 /cert
 /database
+/ormconfig.json
+/.ignore*

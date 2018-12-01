@@ -11,13 +11,15 @@ export class User extends BaseEntity {
   @Column({
     type: 'char',
     length: 64,
-    comment: 'User name'
+    nullable: false,
+    comment: 'User name, content of email address'
   })
   name: string;
 
   @Column({
     type: 'char',
     length: 64,
+    nullable: false,
     comment: 'User password'
   })
   password: string;
@@ -25,6 +27,7 @@ export class User extends BaseEntity {
   @Column({
     type: 'tinyint',
     default: false,
+    nullable: false,
     comment: 'This account is disabled or not'
   })
   disabled: boolean;

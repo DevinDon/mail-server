@@ -1,20 +1,22 @@
-import { IMiddleware } from 'koa-router';
-import { RouterPaths, now } from 'koa-backend-server';
+import { RouterPaths, AMiddleware } from 'koa-backend-server';
 import show from './show';
-import { User } from '../../entity';
+import signIn from './sign/in';
+import signUp from './sign/up';
 
-const index: IMiddleware = async (c: any, next) => {
-  const result = await User.insert({ name: now(), password: 'test' });
+const index: AMiddleware = async (c, next) => {
+  const request = c.request.body;
   c.body = {
-    status: result ? true : false,
-    data: result
+    status: true,
+    data: postPaths
   };
   next();
 };
 
 export const postPaths: RouterPaths = {
   '/': index,
-  '/show': show
+  '/show': show,
+  '/sign/in': signIn,
+  '/sign/up': signUp
 };
 
 export default postPaths;

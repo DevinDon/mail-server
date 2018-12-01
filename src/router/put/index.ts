@@ -1,10 +1,10 @@
-import { AMiddleware, RouterPaths } from 'koa-backend-server';
+import { AMiddleware, RouterPaths, now } from 'koa-backend-server';
 
 const index: AMiddleware = async (c, next) => {
-  const data = c.request.body;
+  const request = c.request.body;
   c.body = {
-    status: data ? true : false,
-    data
+    status: false,
+    data: 'This is the index of put path, but it doesn\'t work now.'
   };
   next();
 };

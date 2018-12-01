@@ -1,13 +1,10 @@
 import { AMiddleware, RouterPaths } from 'koa-backend-server';
 
 const index: AMiddleware = async (c, next) => {
-  const data = c.request.body;
+  const request = c.request.body;
   c.body = {
-    status: true,
-    request: data,
-    data: {
-      any: 'any'
-    }
+    status: false,
+    data: 'This is the index path of patch, but it doesn\'t work now.'
   };
   next();
 };

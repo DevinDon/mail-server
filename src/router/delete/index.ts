@@ -1,10 +1,11 @@
 import { AMiddleware, RouterPaths } from 'koa-backend-server';
 
 const index: AMiddleware = async (c, next) => {
-  const data = c.request.body;
+  const request = c.request.body;
   c.body = {
-    status: data ? true : false,
-    data
+    status: false,
+    request,
+    data: 'This is the index path of delete operation, but it doesn\'t work now.'
   };
   next();
 };

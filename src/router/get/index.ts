@@ -1,5 +1,4 @@
 import { AMiddleware, RouterPaths } from 'koa-backend-server';
-import signin from './signin';
 import mail from './mail';
 
 const index: AMiddleware = async (c, next) => {
@@ -8,8 +7,7 @@ const index: AMiddleware = async (c, next) => {
     url: {
       GET: {
         '/': 'This page',
-        '/signin': 'Sign in page',
-        '/main/:id': 'Get mail'
+        '/mail': 'Get mail'
       }
     }
   };
@@ -18,8 +16,7 @@ const index: AMiddleware = async (c, next) => {
 
 export const getPaths: RouterPaths = {
   '/': index,
-  '/signin': signin,
-  '/mail/:id': mail
+  '/mail': mail
 };
 
 export default getPaths;

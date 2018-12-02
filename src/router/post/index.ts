@@ -2,6 +2,8 @@ import { AMiddleware, CORS, RouterPaths } from 'koa-backend-server';
 import show from './show';
 import signIn from './sign/in';
 import signUp from './sign/up';
+import signOut from './sign/out';
+import status from './status';
 
 const cors: CORS = {
   'Access-Control-Allow-Headers': 'Content-Type',
@@ -34,9 +36,19 @@ export const postPaths: RouterPaths = {
     ware: signIn,
     cors
   },
+  '/sign/out': {
+    path: '/sign/out',
+    ware: signOut,
+    cors
+  },
   '/sign/up': {
     path: '/sign/up',
     ware: signUp,
+    cors
+  },
+  '/status': {
+    path: '/status',
+    ware: status,
     cors
   }
 };

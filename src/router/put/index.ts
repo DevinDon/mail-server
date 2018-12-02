@@ -6,11 +6,13 @@ const index: AMiddleware = async (c, next) => {
     status: false,
     data: 'This is the index of put path, but it doesn\'t work now.'
   };
-  next();
 };
 
 export const putPaths: RouterPaths = {
-  '/': index
+  '/': {
+    path: '/',
+    ware: index
+  }
 };
 
 export default putPaths;

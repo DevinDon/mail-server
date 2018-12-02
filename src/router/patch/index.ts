@@ -6,11 +6,13 @@ const index: AMiddleware = async (c, next) => {
     status: false,
     data: 'This is the index path of patch, but it doesn\'t work now.'
   };
-  next();
 };
 
 export const patchPaths: RouterPaths = {
-  '/': index
+  '/': {
+    path: '/',
+    ware: index
+  }
 };
 
 export default patchPaths;

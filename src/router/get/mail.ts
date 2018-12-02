@@ -8,7 +8,6 @@ export const mail: AMiddleware = async (c, next) => {
     status: data ? true : false,
     data
   };
-  next();
 };
 
 export default mail;

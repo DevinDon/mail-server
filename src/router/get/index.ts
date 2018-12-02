@@ -11,12 +11,17 @@ const index: AMiddleware = async (c, next) => {
       }
     }
   };
-  next();
 };
 
 export const getPaths: RouterPaths = {
-  '/': index,
-  '/mail': mail
+  '/': {
+    path: '/',
+    ware: index
+  },
+  '/mail': {
+    path: '/mail',
+    ware: mail
+  }
 };
 
 export default getPaths;

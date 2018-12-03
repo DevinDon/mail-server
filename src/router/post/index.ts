@@ -4,12 +4,7 @@ import signIn from './sign/in';
 import signUp from './sign/up';
 import signOut from './sign/out';
 import status from './status';
-
-const cors: CORS = {
-  'Access-Control-Allow-Headers': 'Content-Type',
-  'Access-Control-Allow-Methods': ['POST', 'OPTIONS', 'GET'],
-  'Access-Control-Allow-Origin': '*'
-};
+import { allowAllCORS } from '../config';
 
 const index: AMiddleware = async (c, next) => {
   const request = c.request.body;
@@ -24,32 +19,32 @@ export const postPaths: RouterPaths = {
   '/': {
     path: '/',
     ware: index,
-    cors
+    cors: allowAllCORS
   },
   '/show': {
     path: '/show',
     ware: show,
-    cors
+    cors: allowAllCORS
   },
   '/sign/in': {
     path: '/sign/in',
     ware: signIn,
-    cors
+    cors: allowAllCORS
   },
   '/sign/out': {
     path: '/sign/out',
     ware: signOut,
-    cors
+    cors: allowAllCORS
   },
   '/sign/up': {
     path: '/sign/up',
     ware: signUp,
-    cors
+    cors: allowAllCORS
   },
   '/status': {
     path: '/status',
     ware: status,
-    cors
+    cors: allowAllCORS
   }
 };
 

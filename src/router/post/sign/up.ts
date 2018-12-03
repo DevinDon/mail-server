@@ -5,10 +5,13 @@ import { Session } from 'koa-session';
 export const signUp: AMiddleware = async (c, next) => {
   const request = c.request.body;
   const session = c.session as Session;
-  session.user = await User.insert({
-    name: request.name,
-    password: request.password
-  });
+  if (!Boolean(await User.findOne({ name: request.name }))) {
+    const insert = await User.insert({
+      name: request.name,
+      password: request.password
+    });
+    session.user = await User.findOne(insert.raw.insertId);
+  }
   c.body = {
     status: Boolean(session.user),
     data: session.user

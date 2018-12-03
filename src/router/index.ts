@@ -4,7 +4,7 @@ import getPaths from './get';
 import patchPaths from './patch';
 import postPaths from './post';
 import putPaths from './put';
-import optionsPaths from './options';
+export * from './config';
 
 export const allPaths: AllPaths = {
   DELETE: deletePaths,

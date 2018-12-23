@@ -4,9 +4,10 @@
   "description": "Mail Site Backend Server.",
   "main": "dist/index.js",
   "scripts": {
+    "build": "tsc",
+    "dist": "tsc && node dist",
     "start": "ts-node src",
-    "test": "ts-node test",
-    "build": "tsc"
+    "test": "ts-node test"
   },
   "keywords": [
     "backend",
@@ -15,20 +16,14 @@
   "private": true,
   "author": "Devin Don",
   "license": "MIT",
-  "dependencies": {
-    "koa-backend-server": "^0.3.3",
-    "mysql": "^2.16.0"
-  },
-  "devDependencies": {
-    "@types/koa": "^2.0.46",
-    "@types/koa-router": "^7.0.34",
-    "@types/koa-session": "^5.7.4",
-    "@types/node": "^10.12.9",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.1.6"
-  },
   "repository": {
     "type": "git",
     "url": "git@gitee.com:devindon/mail-server"
+  },
+  "dependencies": {
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "koa-backend-server": "^0.4.4"
   }
 }

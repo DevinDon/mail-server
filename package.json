@@ -1,7 +1,7 @@
 {
-  "name": "mail-server",
-  "version": "0.1.1",
-  "description": "Mail Site Backend Server.",
+  "name": "@devindon/mail-server",
+  "version": "0.1.0",
+  "description": "Mail backend server.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -16,14 +16,21 @@
   "private": true,
   "author": "Devin Don",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@gitee.com:devindon/mail-server"
-  },
   "dependencies": {
     "mysql": "^2.16.0"
   },
   "devDependencies": {
     "koa-backend-server": "^0.4.4"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DevinDon/mail-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DevinDon/mail-server/issues"
+  },
+  "homepage": "https://mail.don.red"
 }

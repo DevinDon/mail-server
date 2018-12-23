@@ -1,12 +1,12 @@
-import { AMiddleware, CORS, RouterPaths } from 'koa-backend-server';
+import { Middleware } from 'koa';
+import { RouterPaths } from 'koa-backend-server';
+import { allowAllCORS } from '../config';
 import show from './show';
 import signIn from './sign/in';
-import signUp from './sign/up';
 import signOut from './sign/out';
-import status from './status';
-import { allowAllCORS } from '../config';
+import signUp from './sign/up';
 
-const index: AMiddleware = async (c, next) => {
+const index: Middleware = async (c, next) => {
   const request = c.request.body;
   c.body = {
     status: true,
@@ -39,11 +39,6 @@ export const postPaths: RouterPaths = {
   '/sign/up': {
     path: '/sign/up',
     ware: signUp,
-    cors: allowAllCORS
-  },
-  '/status': {
-    path: '/status',
-    ware: status,
     cors: allowAllCORS
   }
 };

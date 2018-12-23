@@ -1,9 +1,11 @@
-import { AMiddleware, RouterPaths } from 'koa-backend-server';
+import { Middleware } from 'koa';
+import { RouterPaths } from 'koa-backend-server';
 import { allowAllCORS } from '../config';
 import mail from './mail';
+import status from './status';
 import user from './user';
 
-const index: AMiddleware = async (c, next) => {
+const index: Middleware = async (c, next) => {
   c.body = {
     status: true,
     url: {
@@ -13,6 +15,7 @@ const index: AMiddleware = async (c, next) => {
       }
     }
   };
+  await next();
 };
 
 export const getPaths: RouterPaths = {
@@ -27,6 +30,11 @@ export const getPaths: RouterPaths = {
   '/user': {
     path: '/user',
     ware: user,
+    cors: allowAllCORS
+  },
+  '/status': {
+    path: '/status',
+    ware: status,
     cors: allowAllCORS
   }
 };

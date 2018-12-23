@@ -1,6 +1,7 @@
-import { AMiddleware, RouterPaths, now } from 'koa-backend-server';
+import { Middleware } from 'koa';
+import { RouterPaths } from 'koa-backend-server';
 
-const index: AMiddleware = async (c, next) => {
+const index: Middleware = async (c, next) => {
   const request = c.request.body;
   c.body = {
     status: false,

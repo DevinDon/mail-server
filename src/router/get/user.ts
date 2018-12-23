@@ -1,7 +1,7 @@
-import { AMiddleware } from 'koa-backend-server';
+import { Middleware } from 'koa';
 import { User } from '../../entity';
 
-export const user: AMiddleware = async (c, next) => {
+export const user: Middleware = async (c, next) => {
   const request = c.request.query;
   const data = await User.findOne({ name: request.name });
   c.body = {

@@ -1,10 +1,9 @@
-import { AMiddleware } from 'koa-backend-server';
+import { Middleware } from 'koa';
 import { User } from '../../../entity';
-import { Session } from 'koa-session';
 
-export const signUp: AMiddleware = async (c, next) => {
+export const signUp: Middleware = async (c, next) => {
   const request = c.request.body;
-  const session = c.session as Session;
+  const session = c.session;
   if (!Boolean(await User.findOne({ name: request.name }))) {
     const insert = await User.insert({
       name: request.name,

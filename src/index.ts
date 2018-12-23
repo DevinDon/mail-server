@@ -13,6 +13,16 @@ const server: Server = new Server({
     version: 'v1'
   },
   session: {
-    keys: ['mail', 'server']
+    name: 'session.id',
+    domain: 'localhost',
+    secert: ['keys'],
+    httpOnly: true,
+    // maxAge: 86400,
+    redis: {
+      host: '106.14.179.192',
+      port: 16379
+    }
   }
 });
+
+server.listen();

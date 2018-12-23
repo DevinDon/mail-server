@@ -7,8 +7,10 @@ services:
     container_name: mail-server
     depends_on:
       - mail-database
+      - mail-redis
     links:
       - mail-database
+      - mail-redis
     ports:
       - "80:80"
 
@@ -20,9 +22,12 @@ services:
       MYSQL_DATABASE: mail
       MYSQL_USER: mail
       MYSQL_PASSWORD: mail
-    ports:
-      - "3306:3306"
-
     # volumes:
     #   - ./database/mysql:/var/lib/mysql
     #   - ./conf/my.cnf:/etc/mysql/my.cnf
+
+  mail-redis:
+    image: redis
+    container_name: mail-redis
+    ports:
+      - "16379:6379"
